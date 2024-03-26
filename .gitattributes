@@ -1,0 +1,17 @@
+* text=auto
+  # Set default behavior for MATLAB files
+  # These lines specify that MATLAB script files (*.m) and Live Scripts (*.mlx) should be treated as text files, and Git should use the union merge strategy when merging changes. 
+  #  This is suitable for plain text files where line-based merging is appropriate.
+*.m     text merge=union
+*.mlx   text merge=union
+  # MATLAB figure files (*.fig) are binary files, so they should be treated as such. 
+  # This prevents Git from attempting to perform textual merging on binary files, which can lead to corruption.
+*.fig   binary
+
+# Define custom merge drivers for MATLAB files
+# Custom merge driver for MATLAB script files. 
+# When a merge conflict occurs in MATLAB script files, Git will use the specified matlab merge driver. 
+# You can define this merge driver in your global or repository-specific .gitconfig file.
+  *.m     merge=matlab
+  *.mlx   merge=matlab
+  *.fig   merge=matlab
